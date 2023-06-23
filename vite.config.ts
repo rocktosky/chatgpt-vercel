@@ -28,9 +28,15 @@ const adapter = () => {
   }
 }
 
+// @ts-ignore
 export default defineConfig({
   envPrefix: "CLIENT_",
-  plugins: [
+  server: {
+  host: '0.0.0.0',
+      port: 8080,
+      open: true,
+},
+plugins: [
     unocss({
       mergeSelectors: false,
       transformers: [transformerDirectives(), transformerVariantGroup()],
@@ -50,7 +56,8 @@ export default defineConfig({
           "max-w-150px ml-1em px-1 text-slate-7 dark:text-slate rounded-sm bg-slate bg-op-15 focus:(bg-op-20 ring-0 outline-none)"
       }
     }),
-    solid({ ssr: false, adapter: adapter() }),
+    solid({ ssr: false, adapter: adapter()}),
+
     VitePWA({
       base: "/",
       scope: "/",
