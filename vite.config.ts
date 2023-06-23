@@ -33,7 +33,7 @@ export default defineConfig({
   envPrefix: "CLIENT_",
   server: {
   host: '0.0.0.0',
-      port: 8080,
+      port: 3008,
       open: true,
 },
 plugins: [
